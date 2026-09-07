@@ -1,6 +1,6 @@
 # Mycloud
 
-网盘分享链接解析与高速下载的 **Python 实现**（参考 Android 版 YunX，移植其协议与下载引擎，可在 Windows / macOS / Linux PC 上运行）。
+网盘分享链接解析与高速下载（参考 Android 版 YunX，移植其协议与下载引擎，可在 Windows / macOS / Linux PC 上运行）。
 
 已实现 **夸克 / UC / 百度 / 139 / 123 / 迅雷** 六条链路：识别分享链接 → 解析 →（按平台需要）转存临时目录 → 取直链 → 分片并发下载 → 清理临时转存。提供 **桌面 GUI（tkinter）** 与 **交互式 TUI（rich）** 两种界面，并可打包成单文件 `MycloudV1.3.exe` 双击运行。
 
