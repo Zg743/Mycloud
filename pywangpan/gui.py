@@ -95,7 +95,7 @@ class TkUI:
     def ask(self, prompt, default="", password=False):
         def _do():
             return simpledialog.askstring(
-                "pywangpan",
+                "Mycloud",
                 prompt,
                 initialvalue=default or None,
                 show="*" if password else None,
@@ -105,14 +105,14 @@ class TkUI:
     def confirm(self, prompt, default=True):
         def _do():
             if default:
-                return bool(messagebox.askyesno("pywangpan", prompt))
-            return bool(messagebox.askyesno("pywangpan", prompt))
+                return bool(messagebox.askyesno("Mycloud", prompt))
+            return bool(messagebox.askyesno("Mycloud", prompt))
         return self._sync(_do)
 
     def choose(self, prompt, choices):
         text = f"{prompt}\n\n" + "\n".join(f"{i+1}. {label} — {desc}" for i, (label, desc) in enumerate(choices))
         def _do():
-            idx = simpledialog.askinteger("pywangpan", text + "\n\n输入序号", minvalue=1, maxvalue=len(choices))
+            idx = simpledialog.askinteger("Mycloud", text + "\n\n输入序号", minvalue=1, maxvalue=len(choices))
             if idx is None:
                 raise EmptyFilesError("已取消")
             return choices[idx - 1][0]
@@ -243,7 +243,7 @@ class _FileBrowser:
     def _select(self):
         sel = self.tree.selection()
         if not sel:
-            messagebox.showinfo("pywangpan", "请先选择一个文件", parent=self.win)
+            messagebox.showinfo("Mycloud", "请先选择一个文件", parent=self.win)
             return
         f = self._item_map.get(sel[0])
         if f and not f.isdir:
@@ -264,7 +264,7 @@ class _FileBrowser:
 class GuiApp:
     def __init__(self, root, config=None, argv_config=None):
         self.root = root
-        self.root.title("pywangpan — 网盘分享解析与高速下载")
+        self.root.title("Mycloud — 网盘分享解析与高速下载")
         self.root.geometry("860x600")
         self.log_q = queue.Queue()
         self.prog_q = queue.Queue()
@@ -360,15 +360,15 @@ class GuiApp:
 
     def _on_resolve(self, *_):
         if self._busy:
-            messagebox.showwarning("pywangpan", "已有任务进行中")
+            messagebox.showwarning("Mycloud", "已有任务进行中")
             return
         raw = self.link_var.get().strip()
         if not raw:
-            messagebox.showinfo("pywangpan", "请先粘贴分享链接")
+            messagebox.showinfo("Mycloud", "请先粘贴分享链接")
             return
         parsed = ShareLinkParser.parse(raw)
         if not parsed:
-            messagebox.showerror("pywangpan", "无法识别分享链接")
+            messagebox.showerror("Mycloud", "无法识别分享链接")
             return
         label = _HANDLER_LABEL.get(parsed.platform, parsed.platform.value)
         self._log(f"识别平台: {label}  分享ID: {parsed.share_id}"

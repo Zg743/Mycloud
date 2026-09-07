@@ -1,4 +1,4 @@
-"""pywangpan GUI 启动入口（供 PyInstaller 打包 / 双击运行）。
+"""Mycloud GUI 启动入口（供 PyInstaller 打包 / 双击运行）。
 
 本文件位于项目根目录，`pywangpan` 包是其子目录；把本文件所在目录加入
 sys.path，使 `from pywangpan.gui ...` 能按包路径解析（打包后为解包目录，

@@ -722,7 +722,7 @@ _build_label_map()
 def launch_tui(argv_config: dict | None = None) -> int:
     tui = TuiApp(argv_config=argv_config)
     console = tui.console
-    console.print(Panel("[bold cyan] 🚀 pywangpan — 网盘分享解析与高速下载 [/bold cyan]\n"
+    console.print(Panel("[bold cyan] 🚀 Mycloud — 网盘分享解析与高速下载 [/bold cyan]\n"
                         "[dim]夸克 / UC / 百度 / 139 / 123 / 迅雷[/dim]", border_style="cyan"))
     while True:
         choice = tui.choose(
