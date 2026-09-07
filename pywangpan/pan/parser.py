@@ -30,7 +30,7 @@ class ShareLinkParser:
     _quark_id = re.compile(r"pan\.quark\.cn/s/([A-Za-z0-9]+)", re.IGNORECASE)
     _uc_id = re.compile(r"drive\.uc\.cn/s/([A-Za-z0-9]+)", re.IGNORECASE)
     _xunlei_id = re.compile(r"pan\.xunlei\.com/s/([A-Za-z0-9_-]+)", re.IGNORECASE)
-    _baidu_id = re.compile(r"pan\.baidu\.com/s/(1[A-Za-z0-9_-]+)", re.IGNORECASE)
+    _baidu_id = re.compile(r"pan\.baidu\.com/s/([A-Za-z0-9_-]+)", re.IGNORECASE)
     _c139_id = re.compile(r"yun\.139\.com/shareweb/.*?/w/i/([A-Za-z0-9_-]+)", re.IGNORECASE)
     _pan123_id = re.compile(r"123(?:865|pan)\.(?:com|cn)/s/([A-Za-z0-9]+-[A-Za-z0-9]+)", re.IGNORECASE)
     _pan123_sub = re.compile(r"share\.123pan\.cn/123pan/([A-Za-z0-9-]+)", re.IGNORECASE)
@@ -68,7 +68,8 @@ class ShareLinkParser:
             if m:
                 sid = m.group(1)
                 if platform is SharePlatform.BAIDU:
-                    # 百度 surl 不包含开头 "1"，verify/list 用其后的部分
+                    # 老格式 surl 以 "1" 开头，verify/list 接口用其后的部分；
+                    # 新格式（base58）不以 "1" 开头，则原样使用。
                     sid = sid.removeprefix("1")
                 return ParsedShare(share_id=sid, pwd=cls._pwd(url, text), platform=platform)
         return None
