@@ -320,6 +320,14 @@ class GuiApp:
         self.prog = ttk.Progressbar(dlf, variable=self.prog_var, maximum=100)
         self.prog.pack(fill="x")
 
+        footer = ttk.Frame(self.root, padding=(8, 2))
+        footer.pack(fill="x", side="bottom")
+        ttk.Label(
+            footer,
+            text="如遇侵权或者Bug, 请与我联系, 联系QQ:1799412992",
+            foreground="gray",
+        ).pack(side="left")
+
     def _pick_out_dir(self):
         d = filedialog.askdirectory(initialdir=self.out_var.get())
         if d:
