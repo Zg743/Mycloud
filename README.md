@@ -40,10 +40,6 @@ pip install -r requirements.txt
 
 ## 使用方式
 
-> 项目根目录 `D:\zy\小工具\pywangpan\` 里包含一个同名 `pywangpan` 包和 `pywangpan_gui.py`
-> 入口。请在**项目根目录**下运行（PyCharm 也直接打开这个目录即可，`pywangpan` 已被设为
-> 源码根）：`cd D:\zy\小工具\pywangpan`。
-
 ### 方式一：桌面 GUI（推荐）
 
 ```bash
