@@ -324,7 +324,7 @@ class GuiApp:
         footer.pack(fill="x", side="bottom")
         ttk.Label(
             footer,
-            text="如遇侵权或者Bug, 请与我联系, 联系QQ:1799412992",
+            text="免责申明：本工具仅供个人技术学习与交流，请勿用于商业用途或侵权下载，使用风险自负",
             foreground="gray",
         ).pack(side="left")
 

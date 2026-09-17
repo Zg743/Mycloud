@@ -1,5 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
-"""PyInstaller 打包配置：onefile 窗口程序 MycloudV1.3。
+"""PyInstaller 打包配置：onefile 窗口程序 MycloudV1.3.2。
 
 - 打包 GUI 入口 pywangpan_gui.py（含 Playwright 内嵌浏览器登录）。
 - 必须通过 datas 收集 playwright.driver（node.exe + package，约 100MB），
@@ -45,7 +45,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name="MycloudV1.3",
+    name="MycloudV1.3.2",
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

@@ -2,9 +2,14 @@
 
 网盘分享链接解析与高速下载（参考 Android 版 YunX，移植其协议与下载引擎，可在 Windows / macOS / Linux PC 上运行）。
 
-已实现 **夸克 / UC / 百度 / 139 / 123 / 迅雷** 六条链路：识别分享链接 → 解析 →（按平台需要）转存临时目录 → 取直链 → 分片并发下载 → 清理临时转存。提供 **桌面 GUI（tkinter）** 与 **交互式 TUI（rich）** 两种界面，并可打包成单文件 `MycloudV1.3.exe` 双击运行。
+已实现 **夸克 / UC / 百度 / 139 / 123 / 迅雷** 六条链路：识别分享链接 → 解析 →（按平台需要）转存临时目录 → 取直链 → 分片并发下载 → 清理临时转存。提供 **桌面 GUI（tkinter）** 与 **交互式 TUI（rich）** 两种界面，并可打包成单文件 `MycloudV1.3.2.exe` 双击运行。
 
-> 免责声明：仅供个人学习与技术交流。网盘协议接口会随官方调整而失效，请以实际运行结果为准。**不建议用百度网盘**，频繁操作可能导致账号被风控。
+> **免责声明**
+>
+> 1. 本工具及源代码**仅供个人学习、研究与技术交流使用**，禁止用于任何商业用途，禁止用于下载、转存、传播未经权利人授权的内容（含影视、音乐、书籍等版权作品）。
+> 2. 本工具依赖各网盘平台的非公开接口，相关接口与协议归各平台所有，可能随时调整或失效；作者不对工具的可用性、准确性作任何保证，请以实际运行结果为准，并自行承担使用风险。
+> 3. 使用者须自行确认下载内容已获得权利人的合法授权；因使用者违反法律法规、平台服务条款或侵犯第三方权利而产生的一切法律责任，均由使用者自行承担，作者不承担任何责任。
+> 4. 本工具仅作技术研究，如权利人认为其合法权益受到侵害，请联系作者删除相关代码或内容。
 
 ---
 
@@ -34,7 +39,7 @@ pip install -r requirements.txt
     python -m playwright install chromium      # 仅在无 Edge/Chrome 时才需要
     ```
 
-**打包后的 `MycloudV1.3.exe`** 已内置这些依赖（含 Playwright 驱动），装好 exe 的机器只需**装有 Edge 或 Chrome** 即可使用全部功能，无需装 Python。
+**打包后的 `MycloudV1.3.2.exe`** 已内置这些依赖（含 Playwright 驱动），装好 exe 的机器只需**装有 Edge 或 Chrome** 即可使用全部功能，无需装 Python。
 
 ---
 
@@ -46,7 +51,7 @@ pip install -r requirements.txt
 python -m pywangpan.cli --gui
 ```
 
-或双击打包好的 `MycloudV1.3.exe`（已建桌面快捷方式"Mycloud 网盘下载"）。
+或双击打包好的 `MycloudV1.3.2.exe`（已建桌面快捷方式"Mycloud 网盘下载"）。
 
 界面操作：
 
@@ -115,7 +120,7 @@ python -m pywangpan.cli \
 python -m PyInstaller --clean --noconfirm pywangpan.spec
 ```
 
-产物：`dist/MycloudV1.3.exe`（单文件、无控制台窗口，约 58MB，已内置 Python、依赖与 Playwright 驱动）。
+产物：`dist/MycloudV1.3.2.exe`（单文件、无控制台窗口，约 58MB，已内置 Python、依赖与 Playwright 驱动）。
 
 - 分发时**无需**安装 Python、也无需安装 Playwright 自带浏览器；
 - 使用目标机器只需装有 **Edge 或 Chrome** 中的任意一个即可用"工具内浏览器登录"；
