@@ -1,6 +1,6 @@
 # Mycloud
 
-网盘分享链接解析与高速下载（参考 Android 版 YunX，移植其协议与下载引擎，可在 Windows / macOS / Linux PC 上运行）。
+网盘分享链接解析与下载（可在 Windows / macOS / Linux PC 上运行）。
 
 已实现 **夸克 / UC / 百度 / 139 / 123 / 迅雷** 六条链路：识别分享链接 → 解析 →（按平台需要）转存临时目录 → 取直链 → 分片并发下载 → 清理临时转存。提供 **桌面 GUI（tkinter）** 与 **交互式 TUI（rich）** 两种界面，并可打包成单文件 `MycloudV1.3.2.exe` 双击运行。
 
@@ -51,7 +51,7 @@ pip install -r requirements.txt
 python -m pywangpan.cli --gui
 ```
 
-或双击打包好的 `MycloudV1.3.2.exe`（已建桌面快捷方式"Mycloud 网盘下载"）。
+或双击打包好的 `MycloudV1.3.2.exe`
 
 界面操作：
 
@@ -120,7 +120,7 @@ python -m pywangpan.cli \
 python -m PyInstaller --clean --noconfirm pywangpan.spec
 ```
 
-产物：`dist/MycloudV1.3.2.exe`（单文件、无控制台窗口，约 58MB，已内置 Python、依赖与 Playwright 驱动）。
+产物：`dist/MycloudV1.3.2.exe`（单文件、无控制台窗口，约 60MB，已内置 Python、依赖与 Playwright 驱动）。
 
 - 分发时**无需**安装 Python、也无需安装 Playwright 自带浏览器；
 - 使用目标机器只需装有 **Edge 或 Chrome** 中的任意一个即可用"工具内浏览器登录"；
@@ -169,7 +169,7 @@ Mycloud/                  ← 项目根目录（PyCharm 打开此目录，pywang
 
 ---
 
-## 下载引擎要点（对齐 Android 版）
+## 下载引擎要点
 
 - **分片规划**：主池 70% 等分 + 弹性区 30% 按字节序领 4MB 块，保证物理相邻、平滑转场
 - **断点续传**：`part_i` / `seg_起_止.part` 保留，按磁盘已有长度续传；分片计划签名（`plan.txt`）变化则清空重下
@@ -195,7 +195,7 @@ python tests/test_webview.py     # webview：登录取 Cookie（真实 Edge/Chro
 
 ## 扩展其它平台
 
-以 `pan/quark.py` 为模板，实现 `pan/xxx.py`（对应 Android 的 `XxxApi.kt`）与对应的 `xxx_resolver.py` 流程编排即可。各平台差异备忘：
+各平台差异备忘：
 
 | 平台 | 特殊处理 |
 |------|---------|
